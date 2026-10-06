@@ -20,7 +20,15 @@ export default function ClaimsBillingSection() {
         {carrierServices.map((carrier) => (
           <article className="carrier-card" key={carrier.name}>
             <div>
-              <p className="eyebrow">{carrier.name}</p>
+              <div className="carrier-brand">
+                <img
+                  className="carrier-logo"
+                  src={`https://www.google.com/s2/favicons?domain=${carrier.logoDomain}&sz=128`}
+                  alt=""
+                  aria-hidden="true"
+                />
+                <p className="eyebrow">{carrier.name}</p>
+              </div>
               <h3>Billing &amp; account management</h3>
               <p className="carrier-description">Manage your account or pay your bill.</p>
               {'phone' in carrier && (

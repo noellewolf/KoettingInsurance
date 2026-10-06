@@ -37,10 +37,6 @@ export default function QuoteForm() {
               Tell us what you’re looking to protect. Our independent agency can help you compare
               options from multiple carriers.
             </p>
-            <div className="demo-note">
-              <span className="demo-label">LOCAL PROTOTYPE</span>
-              <p>This is a sample form. Nothing is sent or saved. Please use fictional details.</p>
-            </div>
           </div>
           <form className="quote-form" onSubmit={submit}>
             <div className="form-heading">

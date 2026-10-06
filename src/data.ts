@@ -54,21 +54,25 @@ export const sampleRequest = {
 export const carrierServices = [
   {
     name: 'Hanover Insurance',
+    logoDomain: 'www.hanover.com',
     phone: '800-628-0250',
     url: 'https://www.hanover.com/',
   },
   {
     name: 'Travelers Insurance',
+    logoDomain: 'www.travelers.com',
     phone: '800-252-4633',
     url: 'https://www.travelers.com/',
   },
   {
     name: 'American Modern Insurance',
+    logoDomain: 'www.amig.com',
     phone: '800-375-2075',
     url: 'https://www.amig.com/',
   },
   {
     name: 'Kemper Agent Inside',
+    logoDomain: 'www.kemper.com',
     contacts: [
       { label: 'Agent Inside', value: '866-675-3345, option 6', href: 'tel:+18666753345' },
       {
@@ -81,37 +85,44 @@ export const carrierServices = [
   },
   {
     name: 'Nationwide',
+    logoDomain: 'www.nationwide.com',
     phone: '800-282-1446',
     address: 'Mail: P.O. Box 742522, Cincinnati, OH 45274-2522',
     url: 'https://www.nationwide.com/',
   },
   {
     name: 'Safeco',
+    logoDomain: 'www.safeco.com',
     phone: '877-566-6001',
     url: 'https://www.safeco.com/',
   },
   {
     name: 'State Auto Insurance',
+    logoDomain: 'www.stateauto.com',
     phone: '800-777-7324',
     url: 'https://www.stateauto.com/',
   },
   {
     name: 'Rockford Insurance',
+    logoDomain: 'www.rockfordmutual.com',
     phone: '800-747-2957',
     url: 'http://www.rockfordmutual.com/index.php',
   },
   {
     name: 'Frontier Insurance',
+    logoDomain: 'www.fmcmutual.com',
     phone: '217-732-8222',
     url: 'https://www.koettinginsurance.net/billing-claims/',
   },
   {
     name: 'Midwest Insurance',
+    logoDomain: 'www.midins.com',
     phone: '800-375-2075',
     url: 'https://www.midins.com/',
   },
   {
     name: 'Farmers',
+    logoDomain: 'www.farmers.com',
     phone: '800-255-0332',
     contacts: [
       {
@@ -139,6 +150,7 @@ export const carrierServices = [
   },
   {
     name: 'Progressive',
+    logoDomain: 'www.progressive.com',
     contacts: [
       { label: 'Customer service', value: '800-776-4737', href: 'tel:+18007764737' },
       { label: 'BOP underwriting', value: '877-292-8025', href: 'tel:+18772928025' },
@@ -148,6 +160,7 @@ export const carrierServices = [
   },
   {
     name: 'Spriska',
+    logoDomain: 'www.spriska.com',
     phone: '217-753-2500',
     contacts: [
       {

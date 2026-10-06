@@ -21,7 +21,7 @@ export default function TeamSection() {
       <section className="team-section container" aria-labelledby="team-title">
         <div className="team-heading">
           <div>
-            <p className="eyebrow">A FAMILIAR FACE WHEN YOU NEED ONE</p>
+            <p className="eyebrow">OUR PEOPLE</p>
             <h2 id="team-title">
               Meet the people
               <br />

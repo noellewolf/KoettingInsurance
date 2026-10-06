@@ -11,7 +11,7 @@ export default function HomePage() {
         <section className="hero container" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">
-              <span className="small-line" /> YOUR LOCAL, INDEPENDENT INSURANCE AGENCY
+              YOUR LOCAL, INDEPENDENT INSURANCE AGENCY
             </p>
             <h1 id="hero-title">
               Life happens.
@@ -36,22 +36,31 @@ export default function HomePage() {
               </a>
             </div>
             <p className="hero-footnote">
-              <span aria-hidden="true">✳</span> Independent advice. Personal attention. Since 1983.
+              <span aria-hidden="true">✳</span>Independent advice. Personal attention. Since 1983.
             </p>
           </div>
           <Neighborhood />
         </section>
         <div className="values-strip">
-          <div className="container">
-            <span>
-              <Icon name="check" /> Multiple carriers. More options.
-            </span>
-            <span>
-              <Icon name="check" /> Guidance you can understand.
-            </span>
-            <span>
-              <Icon name="check" /> Support when you need it.
-            </span>
+          <div className="values-strip-accessible sr-only">
+            Multiple carriers. More options. Guidance you can understand. Support when you need it.
+          </div>
+          <div className="values-marquee" aria-hidden="true">
+            <div className="values-track">
+              {[0, 1].map((copy) => (
+                <div className="values-group" key={copy}>
+                  <span>
+                    <Icon name="check" /> Multiple carriers. More options.
+                  </span>
+                  <span>
+                    <Icon name="check" /> Guidance you can understand.
+                  </span>
+                  <span>
+                    <Icon name="check" /> Support when you need it.
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <section
@@ -127,7 +136,7 @@ export default function HomePage() {
             <span className="heritage-stamp">
               LOCAL ROOTS
               <br />
-              <span aria-hidden="true">✳</span>
+              <span aria-hidden="true" style={{ height: '1em' }}>✳</span>
               <br />
               INDEPENDENT SPIRIT
             </span>
