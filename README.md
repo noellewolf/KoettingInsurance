@@ -1,4 +1,4 @@
-# Koetting Insurance local prototype
+# Koetting Insurance
 
 A responsive, single-page React + TypeScript mockup using Vite and plain CSS. There is no backend, tracking, storage, or deployment. The sample form validates inputs and shows an in-browser confirmation. It never sends or saves form details.
 
@@ -30,7 +30,7 @@ This delivered checkout uses `pnpm-lock.yaml` because pnpm is available in the b
 - `src/components/`: navigation, icons, illustration, and mock quote form.
 - `src/data.ts`: agency details, coverage categories, and fictional sample input.
 - `src/styles.css`: theme and responsive styles.
-- `public/favicon.svg`: concept favicon.
+- `public/koetting-logo.png`: official Koetting Insurance and Resource Agency logo sourced from the agency's public website.
 
 ## Content and placeholders
 
@@ -42,7 +42,7 @@ Agency name, location, phone, email, founding year, independent-agency model, co
 - https://www.koettinginsurance.net/business/
 - https://www.koettinginsurance.net/contact/
 
-Headlines and descriptions are newly written concept copy for review. The wordmark, colors, favicon, and neighborhood illustration are concept artwork, not the current official branding or a depiction of the actual office. The footer identifies these placeholders. No testimonials, carrier logos, prices, or office hours are invented.
+Headlines, descriptions, colors, and the neighborhood illustration are newly written concept content for review. The header, footer, and favicon use the agency's current official logo. No testimonials, carrier logos, prices, or office hours are invented.
 
 “Use sample details” fills the form with Alex Sample, alex@example.com, and a fictional 555 phone number. The form is labeled as a demo and requests fictional input. Coverage links scroll to the form. Phone/email links open your device's calling/email app; directions opens Google Maps.
 
