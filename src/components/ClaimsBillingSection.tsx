@@ -21,12 +21,14 @@ export default function ClaimsBillingSection() {
           <article className="carrier-card" key={carrier.name}>
             <div>
               <div className="carrier-brand">
-                <img
-                  className="carrier-logo"
-                  src={`https://www.google.com/s2/favicons?domain=${carrier.logoDomain}&sz=128`}
-                  alt=""
-                  aria-hidden="true"
-                />
+                <span className="carrier-logo" aria-hidden="true">
+                  {carrier.name
+                    .split(' ')
+                    .filter(Boolean)
+                    .slice(0, 2)
+                    .map((word) => word[0])
+                    .join('')}
+                </span>
                 <p className="eyebrow">{carrier.name}</p>
               </div>
               <h3>Billing &amp; account management</h3>

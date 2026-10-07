@@ -3,6 +3,7 @@ import HomePage from './App';
 import ClaimsBillingSection from './components/ClaimsBillingSection';
 import SiteLayout from './SiteLayout';
 import LegalPage from './components/LegalPage';
+import CaseStudiesPage from './components/CaseStudiesPage';
 
 function ClaimsBillingPage() {
   return (
@@ -30,6 +31,7 @@ export const pageRoutes: RouteObject[] = [
   { path: 'billing-claims', element: <ClaimsBillingPage /> },
   { path: 'privacy', element: <LegalPage type="privacy" /> },
   { path: 'terms', element: <LegalPage type="terms" /> },
+  { path: 'case-studies', element: <CaseStudiesPage /> },
   { path: '*', element: <NotFoundPage /> },
 ];
 

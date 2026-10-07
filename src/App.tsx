@@ -61,9 +61,7 @@ export default function HomePage() {
       <main id="main">
         <section className="hero container" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">
-              YOUR LOCAL, INDEPENDENT INSURANCE AGENCY
-            </p>
+            <p className="eyebrow">YOUR LOCAL, INDEPENDENT INSURANCE AGENCY</p>
             <h1 id="hero-title">
               Life happens.
               <br />
@@ -171,7 +169,9 @@ export default function HomePage() {
             <span className="heritage-stamp">
               LOCAL ROOTS
               <br />
-              <span aria-hidden="true" style={{ height: '1em' }}>✳</span>
+              <span aria-hidden="true" style={{ height: '1em' }}>
+                ✳
+              </span>
               <br />
               INDEPENDENT SPIRIT
             </span>

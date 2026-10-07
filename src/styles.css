@@ -1645,7 +1645,12 @@ textarea:focus-visible,
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
-  object-fit: contain;
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 .carrier-card .eyebrow {
   margin-bottom: 12px;
@@ -1722,4 +1727,97 @@ textarea:focus-visible,
 .not-found-page p:not(.eyebrow) {
   margin-bottom: 28px;
   color: var(--muted);
+}
+.case-studies-page {
+  padding-block: 75px 95px;
+}
+.case-studies-intro {
+  max-width: 760px;
+  padding-bottom: 38px;
+  border-bottom: 1px solid var(--border);
+}
+.case-studies-intro h1 {
+  max-width: 700px;
+  margin-bottom: 18px;
+}
+.case-studies-intro > p:last-child {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding-block: 38px 65px;
+}
+.case-study-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 290px;
+  padding: 26px 23px;
+  background: #fffdf6;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+.case-study-card .eyebrow {
+  margin-bottom: 24px;
+  color: var(--orange);
+}
+.case-study-card h2 {
+  font-size: 1.65rem;
+  margin-bottom: 15px;
+}
+.case-study-card p:not(.eyebrow) {
+  flex: 1;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  margin-bottom: 22px;
+}
+.case-study-card small {
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.case-studies-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.case-studies-cta .eyebrow {
+  margin-bottom: 10px;
+}
+.case-studies-cta h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+@media (max-width: 1050px) {
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+  .case-study-card {
+    min-height: 0;
+  }
+}
+@media (max-width: 760px) {
+  .case-studies-page {
+    padding-block: 50px 65px;
+  }
+  .case-studies-grid {
+    padding-block: 28px 48px;
+  }
+  .case-studies-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .case-studies-cta .button {
+    width: 100%;
+  }
 }

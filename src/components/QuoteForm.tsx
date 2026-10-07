@@ -2,6 +2,7 @@ import { useRef, useState, type FormEvent } from 'react';
 import { coverages, sampleRequest } from '../data';
 import Icon from './Icon';
 import TeamSection from './TeamSection';
+import { isQuoteApiEnabled, submitQuote } from '../lib/quoteApi';
 
 export default function QuoteForm() {
   const [values, setValues] = useState({
@@ -11,16 +12,29 @@ export default function QuoteForm() {
     coverage: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const confirmation = useRef<HTMLDivElement>(null);
   function update(key: keyof typeof values, value: string) {
     setValues((prev) => ({ ...prev, [key]: value }));
-    setSubmitted(false);
+    setStatus('idle');
+    setErrorMessage('');
   }
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
-    requestAnimationFrame(() => confirmation.current?.focus());
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      await submitQuote(values);
+      setStatus('success');
+      requestAnimationFrame(() => confirmation.current?.focus());
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(
+        error instanceof Error ? error.message : 'Something went wrong. Please call our office.',
+      );
+    }
   }
   return (
     <>
@@ -46,7 +60,8 @@ export default function QuoteForm() {
                 className="text-button"
                 onClick={() => {
                   setValues({ ...sampleRequest });
-                  setSubmitted(false);
+                  setStatus('idle');
+                  setErrorMessage('');
                 }}
               >
                 Use sample details <span aria-hidden="true">↗</span>
@@ -119,19 +134,33 @@ export default function QuoteForm() {
             </label>
             <div className="form-bottom">
               <span>Required fields marked *</span>
-              <button className="button button-dark" type="submit">
-                Try sample request <Icon name="arrow" />
+              <button
+                className="button button-dark"
+                type="submit"
+                disabled={status === 'submitting'}
+              >
+                {status === 'submitting' ? 'Sending…' : 'Start the conversation'}{' '}
+                <Icon name="arrow" />
               </button>
             </div>
-            {submitted && (
+            {status === 'success' && (
               <div ref={confirmation} className="confirmation" role="status" tabIndex={-1}>
                 <Icon name="check" />
                 <div>
-                  <strong>Sample request complete, {values.name.trim() || 'friend'}.</strong>
+                  <strong>Thanks, {values.name.trim() || 'friend'}.</strong>
                   <p>
-                    You selected {values.coverage}. This demo did not send or save your details. For
-                    a real conversation, call (618) 523-4553.
+                    {isQuoteApiEnabled
+                      ? 'Your request is on its way. We will be in touch soon.'
+                      : `This demo did not send or save your details. For a real conversation, call (618) 523-4553.`}
                   </p>
+                </div>
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="confirmation" role="alert">
+                <div>
+                  <strong>We could not send that request.</strong>
+                  <p>{errorMessage}</p>
                 </div>
               </div>
             )}

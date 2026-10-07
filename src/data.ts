@@ -112,7 +112,7 @@ export const carrierServices = [
     name: 'Frontier Insurance',
     logoDomain: 'www.fmcmutual.com',
     phone: '217-732-8222',
-    url: 'https://www.koettinginsurance.net/billing-claims/',
+    url: 'https://www.fmcmutual.com/',
   },
   {
     name: 'Midwest Insurance',

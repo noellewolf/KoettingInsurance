@@ -29,9 +29,11 @@ function RouteEffects() {
           ? 'Privacy Policy | Koetting Insurance'
           : normalizedPath === '/terms'
             ? 'Terms of Use | Koetting Insurance'
-        : normalizedPath === '/'
-          ? 'Koetting | Insurance rooted in community'
-          : 'Page Not Found | Koetting Insurance';
+            : normalizedPath === '/case-studies'
+              ? 'Coverage Conversations | Koetting Insurance'
+              : normalizedPath === '/'
+                ? 'Koetting | Insurance rooted in community'
+                : 'Page Not Found | Koetting Insurance';
   }, [normalizedPath]);
 
   return null;
