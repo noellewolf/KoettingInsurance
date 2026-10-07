@@ -4,8 +4,8 @@ import Neighborhood from './components/Neighborhood';
 import QuoteForm from './components/QuoteForm';
 import { agency, coverages } from './data';
 import { Link } from 'react-router-dom';
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function ValuesMarquee() {
   const trackRef = useRef<HTMLDivElement>(null);
