@@ -9,6 +9,40 @@ function RouteEffects() {
   const { pathname, hash } = useLocation();
   const normalizedPath = pathname.replace(/\/+$/, '') || '/';
 
+  const metadata =
+    normalizedPath === '/billing-claims'
+      ? {
+          title: 'Claims & Billing | Koetting Insurance',
+          description:
+            'Find claims and billing contact information for Koetting Insurance and Resource Agency in Germantown, Illinois.',
+        }
+      : normalizedPath === '/privacy'
+        ? {
+            title: 'Privacy Policy | Koetting Insurance',
+            description: 'Read the privacy policy for Koetting Insurance and Resource Agency.',
+          }
+        : normalizedPath === '/terms'
+          ? {
+              title: 'Terms of Use | Koetting Insurance',
+              description: 'Read the terms of use for Koetting Insurance and Resource Agency.',
+            }
+          : normalizedPath === '/case-studies'
+            ? {
+                title: 'Coverage Conversations | Koetting Insurance',
+                description:
+                  'Explore practical coverage conversations from Koetting Insurance and Resource Agency.',
+              }
+            : normalizedPath === '/'
+              ? {
+                  title: 'Independent Insurance Agency in Germantown, IL | Koetting',
+                  description:
+                    'Koetting Insurance and Resource Agency helps families and businesses in Germantown, Illinois compare coverage with local, independent guidance.',
+                }
+              : {
+                  title: 'Page Not Found | Koetting Insurance',
+                  description: 'The requested Koetting Insurance page could not be found.',
+                };
+
   useLayoutEffect(() => {
     const frame = requestAnimationFrame(() => {
       if (hash) {
@@ -22,19 +56,34 @@ function RouteEffects() {
   }, [pathname, hash]);
 
   useEffect(() => {
-    document.title =
-      normalizedPath === '/billing-claims'
-        ? 'Claims & Billing | Koetting Insurance'
-        : normalizedPath === '/privacy'
-          ? 'Privacy Policy | Koetting Insurance'
-          : normalizedPath === '/terms'
-            ? 'Terms of Use | Koetting Insurance'
-            : normalizedPath === '/case-studies'
-              ? 'Coverage Conversations | Koetting Insurance'
-              : normalizedPath === '/'
-                ? 'Koetting | Insurance rooted in community'
-                : 'Page Not Found | Koetting Insurance';
-  }, [normalizedPath]);
+    document.title = metadata.title;
+
+    const setMeta = (attribute: 'name' | 'property', key: string, content: string) => {
+      let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, key);
+        document.head.appendChild(element);
+      }
+      element.content = content;
+    };
+
+    setMeta('name', 'description', metadata.description);
+    setMeta('property', 'og:title', metadata.title);
+    setMeta('property', 'og:description', metadata.description);
+    setMeta(
+      'property',
+      'og:url',
+      `${window.location.origin}${normalizedPath === '/' ? '/' : normalizedPath}`,
+    );
+    setMeta('name', 'twitter:title', metadata.title);
+    setMeta('name', 'twitter:description', metadata.description);
+
+    const canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonical) {
+      canonical.href = `${window.location.origin}${normalizedPath === '/' ? '/' : normalizedPath}`;
+    }
+  }, [metadata.description, metadata.title, normalizedPath]);
 
   return null;
 }
@@ -62,7 +111,7 @@ export default function SiteLayout() {
           <span className="footer-legal-links">
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>
-            <span>Local prototype made by Noelle Wolf</span>
+            <span>Made by Noelle Wolf</span>
           </span>
         </div>
       </footer>
