@@ -4,6 +4,7 @@ import Neighborhood from './components/Neighborhood';
 import QuoteForm from './components/QuoteForm';
 import { agency, coverages } from './data';
 import { Link } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react"
 
 function ValuesMarquee() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -59,6 +60,7 @@ export default function HomePage() {
   return (
     <>
       <main id="main">
+        <Analytics />
         <section className="hero container" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">YOUR LOCAL, INDEPENDENT INSURANCE AGENCY</p>
