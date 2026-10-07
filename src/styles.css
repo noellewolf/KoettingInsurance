@@ -287,9 +287,10 @@ h1 em {
   padding-block: 23px;
 }
 .values-track {
+  flex: 0 0 auto;
   display: flex;
   width: max-content;
-  animation: values-scroll 42s linear infinite;
+  will-change: transform;
 }
 .values-group {
   flex: 0 0 auto;
@@ -306,14 +307,6 @@ h1 em {
 }
 .values-strip svg {
   width: 20px;
-}
-@keyframes values-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
 }
 .coverage-section {
   padding-block: 85px;
@@ -1062,7 +1055,6 @@ footer {
   }
   .values-track {
     width: 100%;
-    animation: none;
   }
   .values-group {
     width: 100%;
@@ -1261,6 +1253,16 @@ textarea:focus-visible,
   gap: 5px;
   color: var(--muted);
   font-size: 0.78rem;
+}
+.google-rating-topline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.google-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 .google-rating span {
   color: #f4b400;
@@ -1585,6 +1587,9 @@ textarea:focus-visible,
 }
 .carrier-brand .eyebrow {
   margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+  letter-spacing: 0.4px;
 }
 .carrier-logo {
   flex: 0 0 48px;

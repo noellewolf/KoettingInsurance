@@ -29,7 +29,15 @@ export default function ReviewsSection() {
           target="_blank"
           rel="noreferrer"
         >
-          <span aria-hidden="true">★★★★★</span>
+          <span className="google-rating-topline">
+            <img
+              className="google-logo"
+              src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <span aria-hidden="true">★★★★★</span>
+          </span>
           <strong>4.8 stars on Google</strong>
           <small>Read all reviews ↗</small>
         </a>

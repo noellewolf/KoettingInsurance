@@ -1,8 +1,59 @@
+import { useEffect, useRef } from 'react';
 import Icon from './components/Icon';
 import Neighborhood from './components/Neighborhood';
 import QuoteForm from './components/QuoteForm';
 import { agency, coverages } from './data';
 import { Link } from 'react-router-dom';
+
+function ValuesMarquee() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    const firstGroup = track?.firstElementChild as HTMLElement | null;
+    if (!track || !firstGroup) return;
+    const marqueeTrack = track;
+    const marqueeGroup = firstGroup;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+    let lastTime = performance.now();
+    let offset = 0;
+
+    function animate(time: number) {
+      const groupWidth = marqueeGroup.getBoundingClientRect().width;
+      if (!reduceMotion.matches && groupWidth > 0) {
+        offset = (offset + ((time - lastTime) * 24) / 1000) % groupWidth;
+        marqueeTrack.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      }
+      lastTime = time;
+      frame = requestAnimationFrame(animate);
+    }
+
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  return (
+    <div className="values-marquee" aria-hidden="true">
+      <div className="values-track" ref={trackRef}>
+        {Array.from({ length: 6 }, (_, copy) => (
+          <div className="values-group" key={copy}>
+            <span>
+              <Icon name="check" /> Multiple carriers. More options.
+            </span>
+            <span>
+              <Icon name="check" /> Guidance you can understand.
+            </span>
+            <span>
+              <Icon name="check" /> Support when you need it.
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
@@ -45,23 +96,7 @@ export default function HomePage() {
           <div className="values-strip-accessible sr-only">
             Multiple carriers. More options. Guidance you can understand. Support when you need it.
           </div>
-          <div className="values-marquee" aria-hidden="true">
-            <div className="values-track">
-              {[0, 1].map((copy) => (
-                <div className="values-group" key={copy}>
-                  <span>
-                    <Icon name="check" /> Multiple carriers. More options.
-                  </span>
-                  <span>
-                    <Icon name="check" /> Guidance you can understand.
-                  </span>
-                  <span>
-                    <Icon name="check" /> Support when you need it.
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ValuesMarquee />
         </div>
         <section
           id="coverage"
