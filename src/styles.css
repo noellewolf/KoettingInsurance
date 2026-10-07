@@ -854,6 +854,31 @@ footer {
   }
 }
 @media (max-width: 760px) {
+  html.menu-open,
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  body.menu-open .utility {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 22;
+  }
+
+  body.menu-open .header {
+    position: fixed;
+    inset: 44px 0 auto;
+    z-index: 21;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 20px;
+  }
+
+  .header {
+    z-index: 21;
+    background: var(--cream);
+  }
+
   .container {
     width: calc(100% - 40px);
   }
@@ -902,16 +927,26 @@ footer {
     padding: 0 0 20px;
   }
   .nav.is-open {
+    position: fixed;
+    inset: 134px 0 0;
+    z-index: 20;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
+    width: auto;
+    margin: 0;
+    padding: 24px 20px calc(72px + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    background: var(--cream);
+    border-top: 1px solid var(--border);
   }
   .nav > a {
-    padding: 15px 10px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--border);
   }
   .nav .button {
-    margin-top: 10px;
+    margin-top: 18px;
   }
   .hero {
     grid-template-columns: 1fr;
@@ -1088,6 +1123,30 @@ footer {
   }
   .footer-main > a {
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .coverage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card img {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    max-height: 280px;
+  }
+
+  .team-card-copy {
+    padding: 22px 20px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1819,5 +1878,21 @@ textarea:focus-visible,
   }
   .case-studies-cta .button {
     width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .team-card {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card img {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    max-height: 280px;
+  }
+
+  .team-card-copy {
+    padding: 22px 20px;
   }
 }

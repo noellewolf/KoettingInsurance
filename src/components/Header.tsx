@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { agency } from '../data';
 export function Brand() {
@@ -14,6 +14,17 @@ export function Brand() {
 }
 export default function Header() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('menu-open', open);
+    document.body.classList.toggle('menu-open', open);
+
+    return () => {
+      document.documentElement.classList.remove('menu-open');
+      document.body.classList.remove('menu-open');
+    };
+  }, [open]);
+
   return (
     <>
       <div className="utility">
