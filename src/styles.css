@@ -735,6 +735,52 @@ footer {
   color: var(--muted);
   line-height: 1.7;
 }
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.legal-page {
+  padding-block: 80px 100px;
+}
+.legal-intro {
+  max-width: 760px;
+  padding-bottom: 34px;
+  border-bottom: 1px solid var(--border);
+}
+.legal-intro h1 {
+  margin: 10px 0 8px;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+.legal-effective {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.legal-content {
+  max-width: 760px;
+  padding-block: 42px 28px;
+}
+.legal-content p {
+  max-width: 68ch;
+  line-height: 1.75;
+}
+.legal-content h2 {
+  margin: 38px 0 10px;
+  font-size: 1.35rem;
+}
+.legal-contact {
+  max-width: 760px;
+  padding: 22px 0;
+  border-block: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+.legal-back-link {
+  display: inline-flex;
+  margin-top: 28px;
+}
 .skip-link {
   position: absolute;
   left: 20px;

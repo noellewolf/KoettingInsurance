@@ -25,6 +25,10 @@ function RouteEffects() {
     document.title =
       normalizedPath === '/billing-claims'
         ? 'Claims & Billing | Koetting Insurance'
+        : normalizedPath === '/privacy'
+          ? 'Privacy Policy | Koetting Insurance'
+          : normalizedPath === '/terms'
+            ? 'Terms of Use | Koetting Insurance'
         : normalizedPath === '/'
           ? 'Koetting | Insurance rooted in community'
           : 'Page Not Found | Koetting Insurance';
@@ -53,7 +57,11 @@ export default function SiteLayout() {
           <span>
             © {new Date().getFullYear()} {agency.name}
           </span>
-          <span>Local prototype made by Noelle Wolf</span>
+          <span className="footer-legal-links">
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
+            <span>Local prototype made by Noelle Wolf</span>
+          </span>
         </div>
       </footer>
       <a className="mobile-call-bar" href={agency.phoneHref}>

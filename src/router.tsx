@@ -2,6 +2,7 @@ import { createBrowserRouter, Link, RouterProvider, type RouteObject } from 'rea
 import HomePage from './App';
 import ClaimsBillingSection from './components/ClaimsBillingSection';
 import SiteLayout from './SiteLayout';
+import LegalPage from './components/LegalPage';
 
 function ClaimsBillingPage() {
   return (
@@ -27,6 +28,8 @@ function NotFoundPage() {
 export const pageRoutes: RouteObject[] = [
   { index: true, element: <HomePage /> },
   { path: 'billing-claims', element: <ClaimsBillingPage /> },
+  { path: 'privacy', element: <LegalPage type="privacy" /> },
+  { path: 'terms', element: <LegalPage type="terms" /> },
   { path: '*', element: <NotFoundPage /> },
 ];
 
